@@ -1,0 +1,492 @@
+<main class="container">
+  <mat-card appearance="outlined" class="m-5">
+    <div class="container my-5 text-center">
+      <p class="h2">Land Records Management System</p>
+    </div>
+
+    <section class="container">
+      <h5 class="font-regular py-2">Group</h5>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Group Name</mat-label>
+        <input matInput />
+      </mat-form-field>
+    </section>
+
+    <section class="container">
+      <h5 class="font-regular py-2">Area</h5>
+
+      <mat-form-field appearance="outline">
+        <mat-label>State</mat-label>
+        <mat-select required>
+          <mat-option value="AP">Andhra Pradesh</mat-option>
+          <mat-option value="AR">Arunachal Pradesh</mat-option>
+          <mat-option value="AS">Assam</mat-option>
+          <mat-option value="BR">Bihar</mat-option>
+          <mat-option value="CT">Chhattisgarh</mat-option>
+          <mat-option value="GA">Gujarat</mat-option>
+          <mat-option value="HR">Haryana</mat-option>
+          <mat-option value="HP">Himachal Pradesh</mat-option>
+          <mat-option value="JK">Jammu and Kashmir</mat-option>
+          <mat-option value="GA">Goa</mat-option>
+          <mat-option value="JH">Jharkhand</mat-option>
+          <mat-option value="KA">Karnataka</mat-option>
+          <mat-option value="KL">Kerala</mat-option>
+          <mat-option value="MP">Madhya Pradesh</mat-option>
+          <mat-option value="MH">Maharashtra</mat-option>
+          <mat-option value="MN">Manipur</mat-option>
+          <mat-option value="ML">Meghalaya</mat-option>
+          <mat-option value="MZ">Mizoram</mat-option>
+          <mat-option value="NL">Nagaland</mat-option>
+          <mat-option value="OR">Odisha</mat-option>
+          <mat-option value="PB">Punjab</mat-option>
+          <mat-option value="RJ">Rajasthan</mat-option>
+          <mat-option value="SK">Sikkim</mat-option>
+          <mat-option value="TN">Tamil Nadu</mat-option>
+          <mat-option value="TG">Telangana</mat-option>
+          <mat-option value="TR">Tripura</mat-option>
+          <mat-option value="UT">Uttarakhand</mat-option>
+          <mat-option value="UP">Uttar Pradesh</mat-option>
+          <mat-option value="WB">West Bengal</mat-option>
+          <mat-option value="AN">Andaman and Nicobar Islands</mat-option>
+          <mat-option value="CH">Chandigarh</mat-option>
+          <mat-option value="DN">Dadra and Nagar Haveli</mat-option>
+          <mat-option value="DD">Daman and Diu</mat-option>
+          <mat-option value="DL">Delhi</mat-option>
+          <mat-option value="LD">Lakshadweep</mat-option>
+          <mat-option value="PY">Puducherry</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <span class="spacer"></span>
+
+      <mat-form-field appearance="outline">
+        <mat-label>City/Area</mat-label>
+        <mat-select required>
+          <mat-option *ngFor="let city of cities" [value]="city">{{
+            city
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <span class="spacer"></span>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Mouza</mat-label>
+        <input matInput />
+      </mat-form-field>
+
+      <span class="spacer"></span>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Block</mat-label>
+        <input matInput />
+      </mat-form-field>
+
+      <span class="spacer"></span>
+
+      <mat-form-field appearance="outline">
+        <mat-label>JL No.</mat-label>
+        <input type="number" matInput />
+      </mat-form-field>
+
+      <br />
+
+      <button mat-raised-button class="btn-sp mt-1 mb-3">
+        Banglar Bhumi Info
+      </button>
+    </section>
+
+    <section class="container">
+      <h5 class="font-regular py-2">Ownership & Transaction</h5>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Buyer/Owner</mat-label>
+        <input matInput />
+      </mat-form-field>
+
+      <br />
+      <h6 class="font-regular">Seller List</h6>
+
+      <span class="h5 p-3">1.</span>
+      <mat-form-field>
+        <mat-label>Seller</mat-label>
+        <input matInput />
+      </mat-form-field>
+
+      <br />
+
+      <span class="h5 p-3">2.</span>
+      <mat-form-field>
+        <mat-label>Seller</mat-label>
+        <input matInput />
+      </mat-form-field>
+
+      <br />
+
+      <span class="h5 p-3">3.</span>
+      <mat-form-field>
+        <mat-label>Seller</mat-label>
+        <input matInput />
+      </mat-form-field>
+
+      <button mat-button class="btn-sp2">
+        <mat-icon>add</mat-icon> Add Seller
+      </button>
+
+      <br />
+      <h6 class="font-regular my-3">Deed Details</h6>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Deed No.</mat-label>
+        <input matInput />
+      </mat-form-field>
+
+      <span class="spacer"></span>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Date of Deed</mat-label>
+        <input
+          matInput
+          [matDatepicker]="datePicker1"
+          placeholder="MM/DD/YYYY"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="datePicker1"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #datePicker1></mat-datepicker>
+      </mat-form-field>
+
+      <span class="p-3">Main Deed</span><mat-slide-toggle></mat-slide-toggle
+      ><span class="p-3">Chain Deed</span>
+
+      <!-- <div class="w-100 d-flex m-2">
+          <div class="m-auto custom-outline">
+            <mat-radio-group aria-label="Select an option">
+              <mat-radio-button value="1" class="m-2">Main Deed</mat-radio-button>
+              <mat-radio-button value="2" class="m-2">Chain Deed</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div> -->
+
+      <div class="custom-outline2 my-3">
+        <div class="m-2">
+          <p class="text-center">Scan Copy</p>
+          <button mat-button class="btn-sp">
+            <mat-icon>upload</mat-icon> Upload Files
+          </button>
+        </div>
+        <mat-list role="list">
+          <mat-list-item role="listitem"><b>1. </b>File 1.pdf</mat-list-item>
+          <mat-list-item role="listitem"><b>2. </b>File 2.webp</mat-list-item>
+        </mat-list>
+      </div>
+    </section>
+
+    <section class="container">
+      <h5 class="font-regular py-2">Land Specifics</h5>
+
+      <mat-form-field appearance="outline" fxFlex="48%">
+        <mat-label>RS Dag No. (Old)</mat-label>
+        <input matInput />
+      </mat-form-field>
+
+      <span class="spacer"></span>
+
+      <mat-form-field appearance="outline" fxFlex="48%">
+        <mat-label>LR Dag No. (New)</mat-label>
+        <input matInput />
+      </mat-form-field>
+
+      <span class="spacer"></span>
+
+      <mat-form-field appearance="outline" fxFlex="48%">
+        <mat-label>Khatian No. (Old)</mat-label>
+        <input matInput />
+      </mat-form-field>
+
+      <span class="spacer"></span>
+
+      <mat-form-field appearance="outline" fxFlex="48%">
+        <mat-label>Khatian No. (New)</mat-label>
+        <input matInput />
+      </mat-form-field>
+
+      <h6 class="font-regular my-3">Quantity Info</h6>
+
+      <mat-form-field appearance="outline" fxFlex="48%">
+        <mat-label>Total Qty</mat-label>
+        <input matInput />
+      </mat-form-field>
+
+      <span class="spacer"></span>
+
+      <mat-form-field appearance="outline" fxFlex="48%">
+        <mat-label>Purchased Qty</mat-label>
+        <input matInput />
+      </mat-form-field>
+
+      <div class="d-flex mt-1">
+        <div>
+          <mat-form-field appearance="outline" fxFlex="48%">
+            <mat-label>Mutated Qty</mat-label>
+            <input matInput />
+          </mat-form-field>
+
+          <br />
+
+          <mat-form-field appearance="outline" fxFlex="48%">
+            <mat-label>Un-mutated Qty</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </div>
+        <div class="custom-outline2 m-3 mt-0">
+          <div class="m-2">
+            <p class="text-center">
+              Mutation Details/ Mutation Certificate Upload
+            </p>
+            <button mat-button class="btn-sp">
+              <mat-icon>upload</mat-icon> Upload Files
+            </button>
+          </div>
+
+          <div class="drag-n-drop-box">
+            <p class="text-center small-text">DRAG AND DROP HERE</p>
+          </div>
+
+          <!-- <mat-list role="list">
+              <mat-list-item role="listitem"><b>1. </b>File 1.pdf</mat-list-item>
+              <mat-list-item role="listitem"><b>2. </b>File 2.webp</mat-list-item>
+            </mat-list> -->
+        </div>
+
+        <div class="container-fit">
+          <h6 class="font-regular mt-3 text-center">Vested Land Status</h6>
+          <mat-radio-group aria-label="Select an option">
+            <mat-radio-button value="1" class="m-2">Vested</mat-radio-button>
+            <mat-radio-button value="2" class="m-2">Unvested</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+
+      <div class="custom-outline2 m-3 mt-0">
+        <div class="container-fit d-flex flex-column w-100 align-items-center">
+          <h6 class="font-regular mt-3 text-center">Conversion Land Status</h6>
+          <mat-radio-group aria-label="Select an option">
+            <mat-radio-button value="1" class="m-2">Converted</mat-radio-button>
+            <mat-radio-button value="2" class="m-2"
+              >Unconverted</mat-radio-button
+            >
+          </mat-radio-group>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="m-2">
+          <p class="text-center">
+            Conversion Details/ Conversion Certificate Upload
+          </p>
+          <button mat-button class="btn-sp">
+            <mat-icon>upload</mat-icon> Upload Files
+          </button>
+        </div>
+
+        <div class="drag-n-drop-box">
+          <p class="text-center small-text">DRAG AND DROP HERE</p>
+        </div>
+
+        <!-- <mat-list role="list">
+              <mat-list-item role="listitem"><b>1. </b>File 1.pdf</mat-list-item>
+              <mat-list-item role="listitem"><b>2. </b>File 2.webp</mat-list-item>
+            </mat-list> -->
+      </div>
+    </section>
+
+    <section class="container">
+      <h5 class="font-regular py-2">Location & Status</h5>
+
+      <div class="d-flex">
+        <div>
+          <mat-form-field appearance="outline" fxFlex="48%">
+            <mat-label>Location of Deed</mat-label>
+            <input matInput />
+          </mat-form-field>
+
+          <br />
+
+          <mat-form-field appearance="outline" fxFlex="48%">
+            <mat-label>Location of Photocopy</mat-label>
+            <input matInput />
+          </mat-form-field>
+
+          <br />
+
+          <mat-form-field appearance="outline" fxFlex="48%">
+            <mat-label>Status as per Govt. Records</mat-label>
+            <input matInput />
+          </mat-form-field>
+        </div>
+
+        <div class="custom-outline2 m-3 mt-0">
+          <div class="m-2">
+            <p class="text-center">Attach Documents</p>
+            <button mat-button class="btn-sp">
+              <mat-icon>upload</mat-icon> Upload Files
+            </button>
+          </div>
+
+          <div class="drag-n-drop-box">
+            <p class="text-center small-text">DRAG AND DROP HERE</p>
+          </div>
+
+          <!-- <mat-list role="list">
+              <mat-list-item role="listitem"><b>1. </b>File 1.pdf</mat-list-item>
+              <mat-list-item role="listitem"><b>2. </b>File 2.webp</mat-list-item>
+            </mat-list> -->
+        </div>
+
+        <div>
+          <mat-form-field>
+            <mat-label>Remarks</mat-label>
+            <textarea matInput placeholder="Remarks..."></textarea>
+          </mat-form-field>
+
+          <br />
+
+          <mat-form-field appearance="outline">
+            <mat-label>Khazana Status</mat-label>
+            <input matInput />
+          </mat-form-field>
+
+          <br />
+
+          <mat-form-field appearance="outline">
+            <mat-label>Khazana Due Date</mat-label>
+            <input matInput [matDatepicker]="datePicker2" />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="datePicker2"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #datePicker2></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <h5 class="font-regular py-2">Additional Details</h5>
+
+      <h6 class="font-regular">Area Map</h6>
+
+      <div class="d-flex">
+        <div class="img-view">
+          <mat-icon class="icon-img">wallpaper</mat-icon>
+        </div>
+
+        <div class="custom-outline2 m-3 mt-0">
+          <div class="m-2">
+            <p class="text-center">Attach Documents</p>
+            <button mat-button class="btn-sp">
+              <mat-icon>upload</mat-icon> Upload Files
+            </button>
+          </div>
+
+          <div class="drag-n-drop-box">
+            <p class="text-center small-text">DRAG AND DROP HERE</p>
+          </div>
+
+          <!-- <mat-list role="list">
+            <mat-list-item role="listitem"><b>1. </b>File 1.pdf</mat-list-item>
+            <mat-list-item role="listitem"><b>2. </b>File 2.webp</mat-list-item>
+          </mat-list> -->
+        </div>
+      </div>
+
+      <h6 class="font-regular">Legal Matters</h6>
+
+      <mat-form-field>
+        <mat-label>Legal Matters</mat-label>
+        <textarea rows="1" matInput placeholder="Remarks..."></textarea>
+      </mat-form-field>
+
+      <span class="spacer"></span>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Due Date</mat-label>
+        <input matInput [matDatepicker]="datePicker2" />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="datePicker2"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #datePicker2></mat-datepicker>
+      </mat-form-field>
+
+      <h6 class="font-regular">History/ Chain Tree</h6>
+
+      <div class="d-flex">
+        <mat-form-field>
+          <mat-label>History/ Chain Tree</mat-label>
+          <textarea rows="8" cols="30" matInput></textarea>
+        </mat-form-field>
+
+        <div class="custom-outline2 m-3 mt-0">
+          <div class="m-2">
+            <p class="text-center">Attach Documents</p>
+            <button
+              mat-button
+              class="btn-sp"
+              (click)="historyChainAttachments.click()"
+            >
+              <mat-icon>upload</mat-icon> Upload Files
+            </button>
+            <input
+              type="file"
+              accept=".odf, .pdf, .doc, .docx, image/jpeg, image/png"
+              class="d-none"
+              (change)="onClickUploadFiles($event)"
+              multiple
+              #historyChainAttachments
+            />
+          </div>
+
+          @if(fileInfoArray.length) {
+          <mat-list role="list">
+            @for(fileInfo of fileInfoArray; track $index+'-'+fileInfo.name) {
+            <mat-list-item role="listitem"
+              ><b>{{ $index + 1 }}. </b>{{ fileInfo.name }}</mat-list-item
+            >
+            }
+          </mat-list>
+          } @else {
+          <div class="drag-n-drop-box">
+            <p class="text-center small-text">DRAG AND DROP HERE</p>
+          </div>
+          }
+        </div>
+      </div>
+
+      <button mat-button class="btn-sp mb-3">
+        <mat-icon>list</mat-icon> Choose Existing Deed as Chain Deed
+      </button>
+
+      <br />
+
+      <mat-slide-toggle labelPosition="before">Mortgaged ?</mat-slide-toggle>
+
+      <br />
+
+      <mat-slide-toggle class="my-3" labelPosition="before"
+        >Partly sold ?</mat-slide-toggle
+      >
+
+      <button mat-button class="btn-sp mx-3">
+        <mat-icon>list</mat-icon> Tag Deed
+      </button>
+    </section>
+
+    <section class="container">
+      <button mat-button class="btn-sp btn-sp-final mt-5 mb-3 ml-auto">
+        <mat-icon>save</mat-icon> Submit
+      </button>
+    </section>
+  </mat-card>
+</main>
