@@ -55,6 +55,7 @@ export class FormComponent {
       }
     // console.log(this.fileArray);
     // console.log(this.fileInfoArray);
-   
   }
-}
+  
+  }
+
